@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>757</width>
+    <height>633</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>bin_tool</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_13">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QGroupBox" name="groupBox_6">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>系统时间：</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_12">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLineEdit" name="le_cTimeForm"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>-&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="cTime">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_8">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>分隔符：</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>文本1</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="le_space1">
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>_</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>文本2</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="le_space2">
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>_V</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>文本3</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="le_space3">
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>_</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_23">
+           <property name="maximumSize">
+            <size>
+             <width>500</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>文本4</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>BOOT：</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <property name="leftMargin">
+          <number>2</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLineEdit" name="le_bootAddr">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>0x8000 0000</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_bootPathSel">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>选择路径</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="le_bootPath">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>点击修改bin文件路径</string>
+           </property>
+           <property name="text">
+            <string>/boot.bin</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>APP：</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <property name="leftMargin">
+          <number>2</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLineEdit" name="le_appAddr">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>0x8000 5000</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_appPathSel">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>选择路径</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="le_appPath">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>点击修改bin文件路径</string>
+           </property>
+           <property name="text">
+            <string>/app.bin</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Minimum</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>输出信息</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_13">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QTextEdit" name="logOut">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QPushButton" name="btn_Clear">
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>清空输出</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="title">
+         <string>boot</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <property name="spacing">
+              <number>1</number>
+             </property>
+             <item>
+              <widget class="QLineEdit" name="le_bootName1">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>aaa1</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space1_1">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_bootName2">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>bbb2</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space1_2">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_bootName3">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>ccc3</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space1_3">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_bootName4">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>dd4</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chk_bootNameTime">
+             <property name="text">
+              <string>时间后缀</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <item>
+              <widget class="QCheckBox" name="chkBootVer">
+               <property name="toolTip">
+                <string>填写到上面，点执行后才生效</string>
+               </property>
+               <property name="text">
+                <string>自动填写版本信息</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Minimum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_15">
+               <property name="toolTip">
+                <string>填充到第几个窗格</string>
+               </property>
+               <property name="text">
+                <string>填充的段序号：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="bootVerIdx">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>4</number>
+               </property>
+               <property name="value">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_19">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>↓</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_bootName">
+             <property name="text">
+              <string>aaa1_bbb2_ccc3_dd4</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Minimum</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_20">
+             <property name="maximumSize">
+              <size>
+               <width>40</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>-&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_boot">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>执行</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QWidget" name="lw_bootToPath" native="true"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>app</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <property name="spacing">
+              <number>1</number>
+             </property>
+             <item>
+              <widget class="QLineEdit" name="le_appName1">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>aaa1</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space2_1">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_appName2">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>bbb2</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space2_2">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_appName3">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>ccc3</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space2_3">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_appName4">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>dd4</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chk_appNameTime">
+             <property name="text">
+              <string>时间后缀</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QCheckBox" name="chkAppVer">
+               <property name="toolTip">
+                <string>填写到上面，点执行后才生效</string>
+               </property>
+               <property name="text">
+                <string>自动填写版本信息</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Minimum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="toolTip">
+                <string>填充到第几个窗格</string>
+               </property>
+               <property name="text">
+                <string>填充的段序号：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="appVerIdx">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>4</number>
+               </property>
+               <property name="value">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_10">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>↓</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_appName">
+             <property name="text">
+              <string>aaa1_bbb2_ccc3_dd4</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <spacer name="verticalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Minimum</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="maximumSize">
+              <size>
+               <width>40</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>-&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_app">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>执行</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QWidget" name="lw_appToPath" native="true"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>拼接</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <property name="spacing">
+              <number>1</number>
+             </property>
+             <item>
+              <widget class="QLineEdit" name="le_abName1">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>aaa1</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space3_1">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_abName2">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>bbb2</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space3_2">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_abName3">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>ccc3</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lb_space3_3">
+               <property name="font">
+                <font>
+                 <pointsize>15</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>_</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="le_abName4">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>dd4</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_8">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chk_abNameTime">
+             <property name="text">
+              <string>时间后缀</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QCheckBox" name="chkABVer">
+               <property name="toolTip">
+                <string>填写到上面，点执行后才生效</string>
+               </property>
+               <property name="text">
+                <string>自动填写版本信息</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Minimum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_22">
+               <property name="toolTip">
+                <string>填充到第几个窗格</string>
+               </property>
+               <property name="text">
+                <string>填充的段序号：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="abVerIdx">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>4</number>
+               </property>
+               <property name="value">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_11">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>↓</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_abName">
+             <property name="text">
+              <string>aaa1_bbb2_ccc3_dd4</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <spacer name="verticalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Minimum</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="maximumSize">
+              <size>
+               <width>40</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>-&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_ab">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>执行</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_11">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QWidget" name="lw_abToPath" native="true"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_9">
+        <property name="title">
+         <string>批量执行</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
+         <item>
+          <widget class="QCheckBox" name="chk_doBoot">
+           <property name="text">
+            <string>boot</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="chk_doApp">
+           <property name="text">
+            <string>app</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="chk_doAB">
+           <property name="text">
+            <string>拼接</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_do">
+           <property name="text">
+            <string>执行</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
