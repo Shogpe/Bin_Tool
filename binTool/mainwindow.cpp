@@ -54,6 +54,16 @@ MainWindow::MainWindow(QWidget *parent)
         connect(path, SIGNAL(pathRefreash(QString)), this, SLOT(pathSelAndSave(QString)));
     }
 
+    foreach(QCheckBox* chk, this->findChildren<QCheckBox*>())
+    {
+        connect(chk, SIGNAL(stateChanged(int)), this, SLOT(chkStateRefreash(int)));
+    }
+
+    foreach(QSpinBox* sp, this->findChildren<QSpinBox*>())
+    {
+        connect(sp, SIGNAL(valueChanged(int)), this, SLOT(spinValueRefreash(int)));
+    }
+
     foreach(QLineEdit* le, this->findChildren<QLineEdit*>())
     {
         QString objName = le->objectName();
@@ -121,9 +131,9 @@ void MainWindow::uiRefreashWithCfg()
     ui->chk_abNameTime->setChecked(cfg->abOutputCfg.dateChk);
     nameConstract();
 
-    ui->chkBootVer->setChecked(cfg->bootOutputCfg.isVer);
-    ui->chkAppVer->setChecked(cfg->appOutputCfg.isVer);
-    ui->chkABVer->setChecked(cfg->abOutputCfg.isVer);
+    ui->chk_BootVer->setChecked(cfg->bootOutputCfg.isVer);
+    ui->chk_AppVer->setChecked(cfg->appOutputCfg.isVer);
+    ui->chk_ABVer->setChecked(cfg->abOutputCfg.isVer);
 
     ui->bootVerIdx->setValue(cfg->bootOutputCfg.verIndex);
     ui->appVerIdx->setValue(cfg->appOutputCfg.verIndex);
@@ -281,12 +291,7 @@ void MainWindow::nameConstract()
 
 }
 
-void MainWindow::on_le_cTimeForm_editingFinished()
-{
-    cfg->inputCfg.timeForm = ui->le_cTimeForm->text();
-    cfg->save();
-    nameChanged();
-}
+
 
 void MainWindow::pathSelAndSave(QString infor)
 {
@@ -365,25 +370,7 @@ void MainWindow::on_btn_appPathSel_clicked()
 }
 
 
-void MainWindow::on_chk_bootNameTime_stateChanged(int arg1)
-{
-    cfg->bootOutputCfg.dateChk = ui->chk_bootNameTime->isChecked();
-    cfg->save();
-}
 
-
-void MainWindow::on_chk_appNameTime_stateChanged(int arg1)
-{
-    cfg->appOutputCfg.dateChk = ui->chk_appNameTime->isChecked();
-    cfg->save();
-}
-
-
-void MainWindow::on_chk_abNameTime_stateChanged(int arg1)
-{
-    cfg->abOutputCfg.dateChk = ui->chk_abNameTime->isChecked();
-    cfg->save();
-}
 
 
 
@@ -423,7 +410,7 @@ void MainWindow::on_btn_boot_clicked()
 {
     QFile file(ui->le_bootPath->text());
 
-    if(ui->chkBootVer->isChecked())
+    if(ui->chk_BootVer->isChecked())
     {
         foreach(QLineEdit* le, this->findChildren<QLineEdit*>())
         {
@@ -466,7 +453,7 @@ void MainWindow::on_btn_app_clicked()
     QFile file(ui->le_appPath->text());
 
 
-    if(ui->chkAppVer->isChecked())
+    if(ui->chk_AppVer->isChecked())
     {
         foreach(QLineEdit* le, this->findChildren<QLineEdit*>())
         {
@@ -610,7 +597,7 @@ bool MainWindow::binFileMerge(QFile &f)
 void MainWindow::on_btn_ab_clicked()
 {
     QFile appFile(ui->le_appPath->text());
-    if(ui->chkABVer->isChecked())
+    if(ui->chk_ABVer->isChecked())
     {
         foreach(QLineEdit* le, this->findChildren<QLineEdit*>())
         {
@@ -684,43 +671,8 @@ void MainWindow::on_le_appAddr_editingFinished()
 }
 
 
-void MainWindow::on_bootVerIdx_valueChanged(int arg1)
-{
-    cfg->bootOutputCfg.verIndex = ui->bootVerIdx->value();
-    cfg->save();
-}
 
 
-void MainWindow::on_appVerIdx_valueChanged(int arg1)
-{
-    cfg->appOutputCfg.verIndex = ui->appVerIdx->value();
-    cfg->save();
-}
-
-void MainWindow::on_abVerIdx_valueChanged(int arg1)
-{
-    cfg->abOutputCfg.verIndex = ui->abVerIdx->value();
-    cfg->save();
-}
-
-void MainWindow::on_chkBootVer_stateChanged(int arg1)
-{
-    cfg->bootOutputCfg.isVer = ui->chkBootVer->isChecked();
-    cfg->save();
-}
-
-
-void MainWindow::on_chkAppVer_stateChanged(int arg1)
-{
-    cfg->appOutputCfg.isVer = ui->chkAppVer->isChecked();
-    cfg->save();
-}
-
-void MainWindow::on_chkABVer_stateChanged(int arg1)
-{
-    cfg->abOutputCfg.isVer = ui->chkABVer->isChecked();
-    cfg->save();
-}
 
 
 
@@ -744,7 +696,7 @@ bool MainWindow::readVerAndWrite(QFile &f, QLineEdit *l)
     ver += QString::number(ary.at(ary.size()-4-3));
     ver += ".";
     ver += QString::number(ary.at(ary.size()-4-4));
-    LOG_OUT("文件版本号：" + ver);
+    LOG_OUT("读出文件版本号：" + ver);
 
     l->setText(ver);
     emit l->editingFinished();
@@ -796,23 +748,48 @@ void MainWindow::on_btn_do_clicked()
 }
 
 
-void MainWindow::on_chk_doBoot_stateChanged(int arg1)
+void MainWindow::spinValueRefreash(int)
 {
+    QSpinBox *sp = (QSpinBox*)sender();
+    if(sp==nullptr||!sp->objectName().rightRef(6).startsWith("VerIdx"))
+    {
+        return;
+    }
+    cfg->bootOutputCfg.verIndex = ui->bootVerIdx->value();
+    cfg->appOutputCfg.verIndex = ui->appVerIdx->value();
+    cfg->abOutputCfg.verIndex = ui->abVerIdx->value();
+    cfg->save();
+}
+
+void MainWindow::chkStateRefreash(int)
+{
+    QCheckBox* chk = (QCheckBox*)sender();
+    QString objName = chk->objectName();
+    if(chk==nullptr||!objName.startsWith("chk_"))
+    {
+        return;
+    }
+
+    //好像没有必要去区分，全部运行一次也不耗什么时间，反而还起到补充更新的作用
     cfg->inputCfg.chkDoBoot = ui->chk_doBoot->isChecked();
-    cfg->save();
-}
-
-
-void MainWindow::on_chk_doApp_stateChanged(int arg1)
-{
     cfg->inputCfg.chkDoApp = ui->chk_doApp->isChecked();
+    cfg->inputCfg.chkDoAB = ui->chk_doAB->isChecked();
+    cfg->bootOutputCfg.isVer = ui->chk_BootVer->isChecked();
+    cfg->appOutputCfg.isVer = ui->chk_AppVer->isChecked();
+    cfg->abOutputCfg.isVer = ui->chk_ABVer->isChecked();
+    cfg->bootOutputCfg.dateChk = ui->chk_bootNameTime->isChecked();
+    cfg->appOutputCfg.dateChk = ui->chk_appNameTime->isChecked();
+    cfg->abOutputCfg.dateChk = ui->chk_abNameTime->isChecked();
     cfg->save();
+
 }
 
-
-void MainWindow::on_chk_doAB_stateChanged(int arg1)
+void MainWindow::on_le_cTimeForm_editingFinished()
 {
-    cfg->inputCfg.chkDoAB = ui->chk_doAB->isChecked();
+    cfg->inputCfg.timeForm = ui->le_cTimeForm->text();
+    QDateTime dt = QDateTime::currentDateTime();
+    ui->cTime->setText(dt.toString(cfg->inputCfg.timeForm));
     cfg->save();
+    nameChanged();
 }
 

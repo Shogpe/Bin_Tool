@@ -44,16 +44,13 @@ private slots:
 
     void logOutPutRespond(QString log);
 
+    void chkStateRefreash(int);
+
+    void spinValueRefreash(int);
 
     void on_btn_bootPathSel_clicked();
 
     void on_btn_appPathSel_clicked();
-
-    void on_chk_bootNameTime_stateChanged(int arg1);
-
-    void on_chk_appNameTime_stateChanged(int arg1);
-
-    void on_chk_abNameTime_stateChanged(int arg1);
 
     void on_btn_boot_clicked();
 
@@ -65,30 +62,15 @@ private slots:
 
     void on_le_appAddr_editingFinished();
 
-    void on_bootVerIdx_valueChanged(int arg1);
-
-    void on_appVerIdx_valueChanged(int arg1);
-
-    void on_chkBootVer_stateChanged(int arg1);
-
-    void on_chkAppVer_stateChanged(int arg1);
-
     void on_btn_Clear_clicked();
-
-    void on_chkABVer_stateChanged(int arg1);
-
-    void on_abVerIdx_valueChanged(int arg1);
 
     void on_le_cTimeForm_editingFinished();
 
-
     void on_btn_do_clicked();
 
-    void on_chk_doBoot_stateChanged(int arg1);
 
-    void on_chk_doApp_stateChanged(int arg1);
 
-    void on_chk_doAB_stateChanged(int arg1);
+
 
 private:
     bool reNameFileAndSend(QFile &f, QString name, QString path);

@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>633</height>
+    <width>937</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>bin_tool</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_13">
+   <layout class="QHBoxLayout" name="horizontalLayout_16">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -209,23 +209,47 @@
           <number>2</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="le_bootAddr">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>0x8000 0000</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>起始地址：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_bootAddr">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>0x8000 0000</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QPushButton" name="btn_bootPathSel">
@@ -302,23 +326,47 @@
           <number>2</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="le_appAddr">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>0x8000 5000</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>起始地址：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="le_appAddr">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>0x8000 5000</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QPushButton" name="btn_appPathSel">
@@ -392,7 +440,7 @@
          </size>
         </property>
         <property name="title">
-         <string>输出信息</string>
+         <string>输出信息：</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_13">
          <item>
@@ -610,7 +658,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_9">
              <item>
-              <widget class="QCheckBox" name="chkBootVer">
+              <widget class="QCheckBox" name="chk_BootVer">
                <property name="toolTip">
                 <string>填写到上面，点执行后才生效</string>
                </property>
@@ -782,7 +830,12 @@
           </layout>
          </item>
          <item>
-          <widget class="QWidget" name="lw_bootToPath" native="true"/>
+          <widget class="QWidget" name="lw_bootToPath" native="true">
+           <property name="toolTip">
+            <string>右键新增或移除路径
+可以将暂时不用的路径调整为禁用模式以避免临时的测试程序被搬移到正式路径</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -955,7 +1008,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QCheckBox" name="chkAppVer">
+              <widget class="QCheckBox" name="chk_AppVer">
                <property name="toolTip">
                 <string>填写到上面，点执行后才生效</string>
                </property>
@@ -1127,7 +1180,12 @@
           </layout>
          </item>
          <item>
-          <widget class="QWidget" name="lw_appToPath" native="true"/>
+          <widget class="QWidget" name="lw_appToPath" native="true">
+           <property name="toolTip">
+            <string>右键新增或移除路径
+可以将暂时不用的路径调整为禁用模式以避免临时的测试程序被搬移到正式路径</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -1300,7 +1358,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_11">
              <item>
-              <widget class="QCheckBox" name="chkABVer">
+              <widget class="QCheckBox" name="chk_ABVer">
                <property name="toolTip">
                 <string>填写到上面，点执行后才生效</string>
                </property>
@@ -1472,7 +1530,12 @@
           </layout>
          </item>
          <item>
-          <widget class="QWidget" name="lw_abToPath" native="true"/>
+          <widget class="QWidget" name="lw_abToPath" native="true">
+           <property name="toolTip">
+            <string>右键新增或移除路径
+可以将暂时不用的路径调整为禁用模式以避免临时的测试程序被搬移到正式路径</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
