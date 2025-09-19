@@ -72,6 +72,12 @@ private slots:
 
 
 
+    void on_btn_export_clicked();
+
+    void on_btn_import_clicked();
+
+
+
 private:
     bool reNameFileAndSend(QFile &f, QString name, QString path);
     bool binFileMerge(QFile &f);

@@ -5,6 +5,7 @@
 #include "QFileDialog"
 #include "QDateTime"
 #include "QByteArray"
+#include "version.h"
 
 #pragma execution_character_set("utf-8")
 
@@ -13,6 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    this->setWindowTitle(QObject::tr("二进制文件发布工具:%1").arg(VER_PRODUCTVERSION_STR));
+
+    ui->le_appPath->setToolTipDuration(-1);
+    ui->le_bootPath->setToolTipDuration(-1);
 
     cfg = new savecfg();
 
@@ -99,6 +105,9 @@ void MainWindow::uiRefreashWithCfg()
     ui->le_space3->setText(cfg->inputCfg.space[2]);
     fillSpace();
 
+    ui->le_appPath->setToolTip(cfg->inputCfg.appPath);
+    ui->le_bootPath->setToolTip(cfg->inputCfg.bootPath);
+
     ui->chk_doBoot->setChecked(cfg->inputCfg.chkDoBoot);
     ui->chk_doApp->setChecked(cfg->inputCfg.chkDoApp);
     ui->chk_doAB->setChecked(cfg->inputCfg.chkDoAB);
@@ -139,22 +148,33 @@ void MainWindow::uiRefreashWithCfg()
     ui->appVerIdx->setValue(cfg->appOutputCfg.verIndex);
     ui->abVerIdx->setValue(cfg->abOutputCfg.verIndex);
 
-
+    bootPath->clear();
+    appPath->clear();
+    abPath->clear();
     for(int i = 0; i < TO_PATH_MAX_NUM; i++)
     {
-
         if(!cfg->bootOutputCfg.toPath[i].isEmpty())
         {
-            bootPath->addItem(new QListWidgetItem(cfg->bootOutputCfg.toPath[i]));
+            if(!bootPath->isPathExsist(cfg->bootOutputCfg.toPath[i]))
+            {
+                bootPath->addItem(new QListWidgetItem(cfg->bootOutputCfg.toPath[i]));
+            }
         }
         if(!cfg->appOutputCfg.toPath[i].isEmpty())
-        {
-            appPath->addItem(new QListWidgetItem(cfg->appOutputCfg.toPath[i]));
+        {       
+            if(!appPath->isPathExsist(cfg->appOutputCfg.toPath[i]))
+            {
+                appPath->addItem(new QListWidgetItem(cfg->appOutputCfg.toPath[i]));
+            }
         }
         if(!cfg->abOutputCfg.toPath[i].isEmpty())
         {
-            abPath->addItem(new QListWidgetItem(cfg->abOutputCfg.toPath[i]));
+            if(!abPath->isPathExsist(cfg->abOutputCfg.toPath[i]))
+            {
+                abPath->addItem(new QListWidgetItem(cfg->abOutputCfg.toPath[i]));
+            }
         }
+
     }
 }
 
@@ -343,8 +363,12 @@ void MainWindow::pathSelAndSave(QString infor)
 
 void MainWindow::on_btn_bootPathSel_clicked()
 {
-    QString runPath = QCoreApplication::applicationDirPath();//获取项目的根路径
-    QString binFileDirTemp = QFileDialog::getOpenFileName(this,QString("selecte bin file"),runPath,"Text Files(*.bin)",nullptr,QFileDialog::DontResolveSymlinks);
+    QString binFileDirTemp = QFileDialog::getOpenFileName(this,
+                                                          QString("selecte bin file"),
+                                                          ui->le_bootPath->text(),
+                                                          "Text Files(*.bin)",
+                                                          nullptr,
+                                                          QFileDialog::DontResolveSymlinks);
     if(!binFileDirTemp.isEmpty())
     {
         ui->le_bootPath->setText(binFileDirTemp);
@@ -358,8 +382,12 @@ void MainWindow::on_btn_bootPathSel_clicked()
 
 void MainWindow::on_btn_appPathSel_clicked()
 {
-    QString runPath = QCoreApplication::applicationDirPath();//获取项目的根路径
-    QString binFileDirTemp = QFileDialog::getOpenFileName(this,QString("selecte bin file"),runPath,"Text Files(*.bin)",nullptr,QFileDialog::DontResolveSymlinks);
+    QString binFileDirTemp = QFileDialog::getOpenFileName(this,
+                                                          QString("selecte bin file"),
+                                                          ui->le_appPath->text(),
+                                                          "Text Files(*.bin)",
+                                                          nullptr,
+                                                          QFileDialog::DontResolveSymlinks);
     if(!binFileDirTemp.isEmpty())
     {
         ui->le_appPath->setText(binFileDirTemp);
@@ -408,6 +436,9 @@ bool MainWindow::reNameFileAndSend(QFile &f, QString name, QString path)
 
 void MainWindow::on_btn_boot_clicked()
 {
+    ui->lb_bootState->setText("...");
+    repaint();
+    repaint();
     QFile file(ui->le_bootPath->text());
 
     if(ui->chk_BootVer->isChecked())
@@ -428,6 +459,7 @@ void MainWindow::on_btn_boot_clicked()
     if(name.isEmpty())
     {
         LOG_OUT("BOOT新文件名为空");
+        ui->lb_bootState->setText("X");
         return;
     }
 
@@ -440,18 +472,22 @@ void MainWindow::on_btn_boot_clicked()
             QString path = bootPath->item(i)->text();
             if(!reNameFileAndSend(file,name,path))
             {
+                ui->lb_bootState->setText("X");
                 return;
             }
         }
     }
     LOG_OUT("BOOT文件: "+ name +" ,全路径搬移成功");
+    ui->lb_bootState->setText("√");
 }
 
 
 void MainWindow::on_btn_app_clicked()
 {
+    ui->lb_appState->setText("...");
+    repaint();
+    repaint();
     QFile file(ui->le_appPath->text());
-
 
     if(ui->chk_AppVer->isChecked())
     {
@@ -470,6 +506,7 @@ void MainWindow::on_btn_app_clicked()
     if(name.isEmpty())
     {
         LOG_OUT("APP新文件名为空");
+        ui->lb_appState->setText("X");
         return;
     }
 
@@ -482,10 +519,12 @@ void MainWindow::on_btn_app_clicked()
             QString path = appPath->item(i)->text();
             if(!reNameFileAndSend(file,name,path))
             {
+                ui->lb_appState->setText("X");
                 return;
             }
         }
     }
+    ui->lb_appState->setText("√");
     LOG_OUT("APP文件: "+ name +" ,全路径搬移成功");
 }
 
@@ -506,7 +545,7 @@ bool MainWindow::binFileMerge(QFile &f)
 
     long long int  bAddr = bOffset.toLongLong(ok,16);
     if(bAddr < 0x08000000
-     ||bAddr > 0x08010000)
+     ||bAddr > 0x08040000)
     {
         LOG_OUT("拼接检查，boot偏移地址" + QString::number(bAddr,16) + "不合规则");
         return false;
@@ -514,7 +553,7 @@ bool MainWindow::binFileMerge(QFile &f)
 
     long long int aAddr = aOffset.toLongLong(ok,16);
     if(aAddr < 0x08000000
-     ||aAddr > 0x08010000)
+     ||aAddr > 0x08040000)
     {
         LOG_OUT("拼接检查，app偏移地址" + QString::number(aAddr,16) + "不合规则");
         return false;
@@ -596,6 +635,9 @@ bool MainWindow::binFileMerge(QFile &f)
 
 void MainWindow::on_btn_ab_clicked()
 {
+    ui->lb_baState->setText("...");
+    repaint();
+    repaint();
     QFile appFile(ui->le_appPath->text());
     if(ui->chk_ABVer->isChecked())
     {
@@ -623,6 +665,7 @@ void MainWindow::on_btn_ab_clicked()
 
     if(!file.open(QIODevice::WriteOnly))
     {
+        ui->lb_baState->setText("X");
         LOG_OUT("拼接文件创建失败");
         return;
     }
@@ -630,12 +673,14 @@ void MainWindow::on_btn_ab_clicked()
 
     if(name.isEmpty())
     {
+        ui->lb_baState->setText("X");
         LOG_OUT("拼接文件 文件名为空");
         return;
     }
 
     if(!binFileMerge(file))
     {
+        ui->lb_baState->setText("X");
         return;
     }
 
@@ -648,10 +693,12 @@ void MainWindow::on_btn_ab_clicked()
             QString path = abPath->item(i)->text();
             if(!reNameFileAndSend(file,name,path))
             {
+                ui->lb_baState->setText("X");
                 return;
             }
         }
     }
+    ui->lb_baState->setText("√");
     LOG_OUT("APP文件: "+ name +" ,全路径搬移成功");
 
 }
@@ -689,14 +736,33 @@ bool MainWindow::readVerAndWrite(QFile &f, QLineEdit *l)
 
     QByteArray ary = f.readAll();
 
-    ver += QString::number(ary.at(ary.size()-4-1));
-    ver += ".";
-    ver += QString::number(ary.at(ary.size()-4-2));
-    ver += ".";
-    ver += QString::number(ary.at(ary.size()-4-3));
-    ver += ".";
-    ver += QString::number(ary.at(ary.size()-4-4));
-    LOG_OUT("读出文件版本号：" + ver);
+    QString offsetAddr = ui->le_appAddr->text();
+    if(offsetAddr.replace(" ","") == "0x08020000")
+    {
+        //CMU
+        ver += QString("%1").arg(ary.at(ary.size()-8-1)&0xFF,2,16,QLatin1Char('0'));
+        ver += ".";
+        ver += QString("%1").arg(ary.at(ary.size()-8-2)&0xFF,2,16,QLatin1Char('0'));
+        ver += ".";
+        ver += QString("%1").arg(ary.at(ary.size()-8-3)&0xFF,2,16,QLatin1Char('0'));
+        ver += ".";
+        ver += QString("%1").arg(ary.at(ary.size()-8-4)&0xFF,2,16,QLatin1Char('0'));
+        LOG_OUT("读出CMU文件版本号：" + ver);
+    }
+    else
+    {
+        //OTHER
+        ver += QString("%1").arg(ary.at(ary.size()-4-1)&0xFF,2,16,QLatin1Char('0'));
+        ver += ".";
+        ver += QString("%1").arg(ary.at(ary.size()-4-2)&0xFF,2,16,QLatin1Char('0'));
+        ver += ".";
+        ver += QString("%1").arg(ary.at(ary.size()-4-3)&0xFF,2,16,QLatin1Char('0'));
+        ver += ".";
+        ver += QString("%1").arg(ary.at(ary.size()-4-4)&0xFF,2,16,QLatin1Char('0'));
+        LOG_OUT("读出文件版本号：" + ver);
+    }
+
+
 
     l->setText(ver);
     emit l->editingFinished();
@@ -792,4 +858,45 @@ void MainWindow::on_le_cTimeForm_editingFinished()
     cfg->save();
     nameChanged();
 }
+
+
+
+
+
+void MainWindow::on_btn_export_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, "导出文件","newCfg.ini",
+                        "*.ini");
+    if(fileName.isEmpty())
+    {
+        LOG_OUT("配置导出失败");
+    }
+    else
+    {
+        cfg->save(fileName);
+        LOG_OUT(QString("配置导出：%1").arg(fileName));
+    }
+}
+
+
+void MainWindow::on_btn_import_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "导入文件",
+                         QDir::currentPath(), "*.ini");
+    if(fileName.isEmpty())
+    {
+       cfg->load();
+       LOG_OUT("配置导入失败");
+       uiRefreashWithCfg();
+    }
+    else
+    {
+        cfg->load(fileName);
+        LOG_OUT(QString("配置导入：%1").arg(fileName));
+        uiRefreashWithCfg();
+        cfg->save();
+    }
+}
+
+
 

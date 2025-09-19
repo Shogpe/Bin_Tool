@@ -9,6 +9,9 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    QFont f("STXihei ",11);
+    a.setFont(f);
+
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {

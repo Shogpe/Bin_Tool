@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 9.0.0, 2024-04-28T17:16:46. -->
+<!-- Written by QtCreator 9.0.0, 2025-07-15T10:05:00. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -243,7 +243,7 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/QT/workSpace/BIN_TOOL/build-binTool-qmake5_12_10x64-Release</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/QT/workSpace/binTool/Bin_Tool/binTool/../Bin_Tool</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

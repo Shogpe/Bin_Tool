@@ -46,7 +46,14 @@ void pathList::add(bool checked = false)
     QString infor;
 
     QString runPath = QCoreApplication::applicationDirPath();//获取项目的根路径
-    QString binFileDirTemp = QFileDialog::getExistingDirectory();
+    if(!delCache.isEmpty())
+    {
+        runPath = delCache;
+    }
+    QString binFileDirTemp = QFileDialog::getExistingDirectory(this,
+                                                               "selecte dir",
+                                                               runPath,
+                                                               QFileDialog::ShowDirsOnly);
     if(this->count()<=TO_PATH_MAX_NUM)
     {
         this->addItem(binFileDirTemp);
@@ -64,6 +71,7 @@ void pathList::del(bool checked = false)
     if(this->currentItem() != nullptr)
     {
         infor = "移除路径：" + this->currentItem()->text();
+        delCache = this->currentItem()->text();
         this->removeItemWidget(this->currentItem());
         delete this->currentItem();
 
@@ -111,3 +119,15 @@ void pathList::disable(bool checked = false)
 
 }
 
+
+bool pathList::isPathExsist(QString path)
+{
+    for(int idx = 0; idx < count(); idx++)
+    {
+        if(path == item(idx)->text())
+        {
+            return true;
+        }
+    }
+    return false;
+}

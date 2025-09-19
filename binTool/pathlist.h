@@ -28,12 +28,16 @@ public:
     QAction* pathEn;
     QAction* pathDisEn;
 
+
 public:
     void add(bool f);
     void del(bool f);
     void enable(bool f);
     void disable(bool f);
 
+    bool isPathExsist(QString path);
+
+    QString delCache = "";
 signals:
     void pathRefreash(QString infor);
 };

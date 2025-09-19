@@ -45,8 +45,8 @@ signals:
     void nameRefreashed(void);
 
 public:
-    void load();
-    void save();
+    void load(QString name = "config.ini");
+    void save(QString name = "config.ini");
 
 };
 

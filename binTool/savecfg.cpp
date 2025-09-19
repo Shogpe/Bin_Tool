@@ -9,9 +9,9 @@ savecfg::savecfg(QObject *parent)
 }
 
 
-void savecfg::load()
+void savecfg::load(QString name)
 {
-    QSettings* settings = new QSettings("config.ini", QSettings::IniFormat);
+    QSettings* settings = new QSettings(name, QSettings::IniFormat);
 
     //输入文件
     inputCfg.bootAddr = settings->value("inputCfgBootAddr", "0x08000000").toString();
@@ -59,10 +59,9 @@ void savecfg::load()
     settings->deleteLater();
 }
 
-
-void savecfg::save()
+void savecfg::save(QString name)
 {
-    QSettings* settings = new QSettings("config.ini", QSettings::IniFormat);
+    QSettings* settings = new QSettings(name, QSettings::IniFormat);
 
     //输入文件
     settings->setValue("inputCfgBootAddr", inputCfg.bootAddr);
@@ -108,9 +107,4 @@ void savecfg::save()
     }
     settings->deleteLater();
     emit nameRefreashed();
-
-
-
-
-
 }
